@@ -5,8 +5,9 @@ import CategoryCloud from "@/components/category-cloud/CategoryCloud.astro";
 import Pagination from "@/components/pagination/Pagination.astro";
 import PostCard from "@/components/post-card/PostCardMultiLink.astro";
 import { countItems, getAllPosts } from "@/js/blogUtils";
+import { getCategoryName } from "@/js/categoryUtils";
 import { getPageLocale } from "@/js/localeUtils";
-import { categorify, humanize, slugify } from "@/js/textUtils";
+import { slugify } from "@/js/textUtils";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 // generate pagination for tag pages if there are a bunch of posts for a single tag
@@ -38,7 +39,7 @@ export async function getStaticPaths({ paginate }) {
 const { page } = Astro.props as { page: Page };
 const { category } = Astro.params as { category: string };
 
-const formattedCategory = humanize(category);
+const formattedCategory = getCategoryName(category);
 ---
 
 <BaseLayout

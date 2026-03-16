@@ -1,6 +1,7 @@
 ---
+import { getCategoryName } from "@/js/categoryUtils";
 import { getLocaleFromUrl } from "@/js/localeUtils";
-import { humanize, slugify } from "@/js/textUtils";
+import { slugify } from "@/js/textUtils";
 import { getLocalizedRoute } from "@/js/translationUtils";
 
 interface Props {
@@ -21,7 +22,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
       class:list={["w-auto", className]}
     >
       <div class="bg-muted hover:bg-primary hover:text-primary-foreground rounded-md px-4 py-2 text-sm transition-colors duration-200 md:px-6 md:py-2.5">
-        {humanize(category)}
+        {getCategoryName(category)}
         {count !== undefined && <span class="mt-0.5 ml-1 text-xs opacity-70">({count})</span>}
       </div>
     </a>
