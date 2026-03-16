@@ -72,7 +72,7 @@ const Blog = (locale: (typeof locales)[number]) =>
         {
           label: "Categories",
           validation: { length: { min: 1 } },
-          itemLabel: (props) => props.value || "카테고리를 선택하세요",
+          itemLabel: (props) => props.value || "(선택 안 됨 — 클릭하여 선택)",
         },
       ),
       tags: fields.text({
@@ -125,7 +125,6 @@ const Authors = (locale: (typeof locales)[number] | "") =>
     slugField: "name",
     path: `src/data/authors/${locale}/*/`,
     columns: ["name"],
-    entryLayout: "content",
     format: { contentField: "bio" },
     schema: {
       name: fields.slug({
