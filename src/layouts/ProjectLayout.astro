@@ -5,7 +5,6 @@ import { type CollectionEntry, getEntries } from "astro:content";
 import Button from "@/components/button/Button.astro";
 import KeyFeatures from "@/components/projects/KeyFeatures.astro";
 import TechStack from "@/components/projects/TechStack.astro";
-import RelatedContent from "@/components/seo/RelatedContent.astro";
 import { getLocaleFromUrl } from "@/js/localeUtils";
 import { formatDate } from "@/js/textUtils";
 import { useTranslations } from "@/js/translationUtils";
@@ -106,11 +105,6 @@ const t = useTranslations(currLocale);
         </div>
       </div>
 
-      <RelatedContent
-        keywords={[title, ...technologies]}
-        currentPath={Astro.url.pathname}
-        limit={3}
-      />
     </div>
   </article>
 </BaseLayout>
