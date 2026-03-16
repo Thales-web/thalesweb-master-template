@@ -22,7 +22,7 @@ export default config({
   // create a Keystatic Cloud account here: https://keystatic.cloud/
   cloud: { project: "cosmic-themes/starter" },
   ui: {
-    brand: { name: "Cosmic Themes" },
+    brand: { name: "Thales Web" },
   },
   collections: {
     blogEN: Collections.Blog("en"),

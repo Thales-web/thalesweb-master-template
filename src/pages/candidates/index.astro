@@ -5,9 +5,11 @@ import CandidateCard from "@/components/candidates/CandidateCard.astro";
 import CandidateCardFeatured from "@/components/candidates/CandidateCardFeatured.astro";
 import CandidateFilters from "@/components/candidates/CandidateFilters.astro";
 import { filterCollectionByLanguage, getLocaleFromUrl } from "@/js/localeUtils";
+import { useTranslations } from "@/js/translationUtils";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const currLocale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(currLocale);
 
 const allCandidates: CollectionEntry<"candidates">[] = await getCollection(
   "candidates",
@@ -175,10 +177,10 @@ const testimonials = [
           <h2
             class="text-foreground text-3xl font-semibold tracking-tight text-balance sm:text-4xl"
           >
-            Subscribe to our newsletter
+            {t("subscribe_newsletter")}
           </h2>
           <p class="text-muted-foreground mt-4 max-w-lg text-balance">
-            Enjoy the latest news and updates from our team and community.
+            {t("subscribe_description")}
           </p>
         </div>
         <div>
@@ -190,7 +192,7 @@ const testimonials = [
                 id={`email-candidates-${currLocale}`}
                 name="email"
                 required
-                placeholder="Enter your email address"
+                placeholder={t("subscribe_placeholder")}
                 class="bg-card text-foreground placeholder:text-muted-foreground focus:ring-primary-accent block h-10 w-full rounded-lg border px-4 py-2 text-sm shadow-sm focus:outline-none focus:ring-2"
               />
             </div>
@@ -199,12 +201,12 @@ const testimonials = [
                 type="submit"
                 class="bg-foreground text-background w-full rounded-lg px-4 py-2.5 text-sm font-medium transition hover:opacity-90"
               >
-                Subscribe
+                {t("subscribe")}
               </button>
             </div>
           </form>
           <p class="text-muted-foreground mt-2 text-xs">
-            By subscribing, you agree to receive our latest updates. No spam, promise!
+            {t("subscribe_disclaimer")}
           </p>
         </div>
       </div>

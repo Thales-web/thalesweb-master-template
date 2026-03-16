@@ -3,6 +3,11 @@ import Badge from "@/components/badge/Badge.astro";
 import Button from "@/components/button/Button.astro";
 import { Input } from "@/components/starwind/input";
 import { Label } from "@/components/starwind/label";
+import { getLocaleFromUrl } from "@/js/localeUtils";
+import { useTranslations } from "@/js/translationUtils";
+
+const currLocale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(currLocale);
 ---
 
 <section id="cta-center-newsletter" class="overflow-hidden py-24">
@@ -32,7 +37,7 @@ import { Label } from "@/components/starwind/label";
               />
             </div>
             <div>
-              <Button type="submit" class="w-full px-14 md:w-auto">Subscribe</Button>
+              <Button type="submit" class="w-full px-14 md:w-auto">{t("subscribe")}</Button>
             </div>
           </div>
         </form>

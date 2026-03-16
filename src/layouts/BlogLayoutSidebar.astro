@@ -98,7 +98,7 @@ const readingTime = post.body ? getReadingTime(post.body) : 1;
                         {author.data.name}
                       </span>
                       <time datetime={pubDate.toISOString()} class="text-sm opacity-70">
-                        {formatDate(pubDate, currLocale)} &bull; {readingTime} min read
+                        {formatDate(pubDate, currLocale)} &bull; {readingTime} {t("min_read")}
                       </time>
                     </div>
                   </a>
@@ -124,7 +124,7 @@ const readingTime = post.body ? getReadingTime(post.body) : 1;
         <aside class="hidden lg:block">
           <div class="sticky top-24 overflow-y-auto">
             <div class="h-[calc(100vh-(var(--spacing)*_26))]">
-              <h3 class="h3 mb-4">Table of Contents</h3>
+              <h3 class="h3 mb-4">{t("table_of_contents")}</h3>
               <TableOfContents headings={headings} />
             </div>
           </div>
@@ -132,7 +132,7 @@ const readingTime = post.body ? getReadingTime(post.body) : 1;
       </div>
       <!-- Share buttons -->
       <div class="mt-8 flex items-center gap-4 border-t pt-6">
-        <span class="text-muted-foreground text-sm font-medium">Share:</span>
+        <span class="text-muted-foreground text-sm font-medium">{t("share")}:</span>
         <ShareButtons title={title} url={Astro.url} />
       </div>
 

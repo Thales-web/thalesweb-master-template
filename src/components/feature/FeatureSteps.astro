@@ -41,7 +41,7 @@ const featureData: FeatureData[] = [
     <div class="w-full">
       <div class="md:max-w-lg">
         <div class="flex">
-          <h2 class="h2 mb-10">Three easy steps</h2>
+          <h2 class="h2 mb-10">{t("three_easy_steps")}</h2>
         </div>
         <div class="mb-8 flex flex-col gap-8" id="feature-steps-trigger">
           {
@@ -76,7 +76,7 @@ const featureData: FeatureData[] = [
           data-mos-delay={0.75}
         >
           <Button variant="primary" arrow="right" href={getLocalizedRoute(currLocale, "signup")}>
-            Get Started
+            {t("get_started")}
           </Button>
         </div>
       </div>

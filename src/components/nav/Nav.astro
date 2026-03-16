@@ -4,7 +4,7 @@ import LanguageSelect from "@/components/language-select/LanguageSelect.astro";
 import SiteLogo from "@/components/site-logo/SiteLogo.astro";
 import ThemeToggle from "@/components/theme-toggle/ThemeToggle.astro";
 import { getLocaleFromUrl } from "@/js/localeUtils";
-import { getTranslatedData } from "@/js/translationUtils";
+import { getTranslatedData, useTranslations } from "@/js/translationUtils";
 
 import MobileNav from "./mobile-nav/MobileNav.astro";
 import MegaMenuDropdownToggle from "./nav-dropdown/MegaMenuDropdownToggle.astro";
@@ -13,6 +13,7 @@ import NavLink from "./NavLink.astro";
 
 const currLocale = getLocaleFromUrl(Astro.url);
 const navData = getTranslatedData("navData", currLocale);
+const t = useTranslations(currLocale);
 import { locales } from "@/config/siteSettings.json";
 // console.log(JSON.stringify(navData, null, 2));
 
@@ -76,7 +77,7 @@ const { navStyle = "default" } = Astro.props as Props;
             target="_blank"
             rel="noreferrer"
           >
-            Get All Access
+            {t("get_all_access")}
           </Button>
 
           {locales.length > 1 && <LanguageSelect class="ml-4 hidden md:block" />}

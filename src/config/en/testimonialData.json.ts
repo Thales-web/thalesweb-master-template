@@ -20,9 +20,9 @@ export const testimonialData: TestimonialItem[] = [
     avatar: Connor,
     name: "Connor D",
     title: "Patient Since 2023",
-    testimonial: `Cosmic Themes offers more than stunning templates built on a rock-solid Astro
+    testimonial: `Thales Web offers more than stunning templates built on a rock-solid Astro
      foundation—it fosters a vibrant community. With value-added perks like Discord and GitHub 
-     invites, Cosmic Themes is a no-brainer for anyone launching a new Astro project.
+     invites, Thales Web is a no-brainer for anyone launching a new Astro project.
       `,
   },
   {
@@ -40,7 +40,7 @@ export const testimonialData: TestimonialItem[] = [
     name: "Aniket P",
     title: "Patient Since 2022",
     testimonial: `I'm not a front-end dev, but I wanted to rebuild my personal site with Astro. If you're in the same shoes,
-    I can't recommend enough Cosmic Themes. The entire process required exactly one CSS change.
+    I can't recommend enough Thales Web. The entire process required exactly one CSS change.
       `,
   },
   {
@@ -55,7 +55,7 @@ export const testimonialData: TestimonialItem[] = [
     avatar: Damiano,
     name: "Damiano L",
     title: "Patient Since 2020",
-    testimonial: `Cosmic Themes provides some of the best Astro themes out there. They are well designed, easy to customize and, 
+    testimonial: `Thales Web provides some of the best Astro themes out there. They are well designed, easy to customize and, 
     most importantly, the team is very responsive concerning support and feature requests. Using their themes allows you to forget 
     about the design and focus on content creation.
       `,

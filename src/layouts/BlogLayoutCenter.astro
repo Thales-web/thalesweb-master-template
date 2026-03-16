@@ -83,7 +83,7 @@ const readingTime = post.body ? getReadingTime(post.body) : 1;
             <span>&bull;</span>
 
             <!-- Reading time -->
-            <span class="my-auto">{readingTime} min read</span>
+            <span class="my-auto">{readingTime} {t("min_read")}</span>
           </div>
         </div>
       </div>
@@ -127,7 +127,7 @@ const readingTime = post.body ? getReadingTime(post.body) : 1;
 
           <!-- Share buttons -->
           <div class="mt-12 flex items-center gap-4 border-t pt-6">
-            <span class="text-muted-foreground text-sm font-medium">Share:</span>
+            <span class="text-muted-foreground text-sm font-medium">{t("share")}:</span>
             <ShareButtons title={title} url={Astro.url} />
           </div>
 
