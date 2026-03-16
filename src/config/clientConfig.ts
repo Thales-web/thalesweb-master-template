@@ -72,6 +72,15 @@ function buildClientConfig(): ClientConfigProps {
         import.meta.env.PUBLIC_NAVER_VERIFICATION ||
         data.naverSearchAdvisorVerification ||
         undefined,
+      naverAnalyticsId:
+        import.meta.env.PUBLIC_NAVER_ANALYTICS_ID || data.naverAnalyticsId || undefined,
+      microsoftClarityId:
+        import.meta.env.PUBLIC_CLARITY_ID || data.microsoftClarityId || undefined,
+      facebookPixelId:
+        import.meta.env.PUBLIC_FB_PIXEL_ID || data.facebookPixelId || undefined,
+      kakaoPixelId:
+        import.meta.env.PUBLIC_KAKAO_PIXEL_ID || data.kakaoPixelId || undefined,
+      customHeadCode: data.customHeadCode || undefined,
     },
     seo: {
       enableLocalBusiness: data.enableLocalBusiness ?? false,

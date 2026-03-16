@@ -104,6 +104,7 @@ const Blog = (locale: (typeof locales)[number]) =>
         },
         components: {
           Admonition: ComponentBlocks.Admonition,
+          HtmlBlock: ComponentBlocks.HtmlBlock,
         },
       }),
     },
@@ -250,6 +251,7 @@ const Services = (locale: (typeof locales)[number]) =>
         },
         components: {
           Admonition: ComponentBlocks.Admonition,
+          HtmlBlock: ComponentBlocks.HtmlBlock,
         },
       }),
     },
@@ -341,6 +343,7 @@ const Careers = (locale: (typeof locales)[number]) =>
         },
         components: {
           Admonition: ComponentBlocks.Admonition,
+          HtmlBlock: ComponentBlocks.HtmlBlock,
         },
       }),
     },
@@ -431,6 +434,7 @@ const Projects = (locale: (typeof locales)[number]) =>
         },
         components: {
           Admonition: ComponentBlocks.Admonition,
+          HtmlBlock: ComponentBlocks.HtmlBlock,
         },
       }),
     },
@@ -736,6 +740,27 @@ const ClientSettings = () =>
         label: "Naver Search Advisor Verification",
         description: "Verification code (env var PUBLIC_NAVER_VERIFICATION overrides this)",
       }),
+      naverAnalyticsId: fields.text({
+        label: "Naver Analytics ID",
+        description: "Naver Analytics tracking ID (env var PUBLIC_NAVER_ANALYTICS_ID overrides this)",
+      }),
+      microsoftClarityId: fields.text({
+        label: "Microsoft Clarity ID",
+        description: "Clarity project ID (env var PUBLIC_CLARITY_ID overrides this)",
+      }),
+      facebookPixelId: fields.text({
+        label: "Facebook (Meta) Pixel ID",
+        description: "FB Pixel ID (env var PUBLIC_FB_PIXEL_ID overrides this)",
+      }),
+      kakaoPixelId: fields.text({
+        label: "Kakao Pixel ID",
+        description: "Kakao Pixel tracking ID (env var PUBLIC_KAKAO_PIXEL_ID overrides this)",
+      }),
+      customHeadCode: fields.text({
+        label: "Custom Head Code",
+        description: "Custom HTML/scripts to inject into <head>. Use for third-party verification tags, pixels, etc.",
+        multiline: true,
+      }),
 
       // === SEO Feature Toggles ===
       enableLocalBusiness: fields.checkbox({
@@ -833,6 +858,7 @@ const OtherPages = (locale: (typeof locales)[number]) =>
         },
         components: {
           Admonition: ComponentBlocks.Admonition,
+          HtmlBlock: ComponentBlocks.HtmlBlock,
         },
       }),
     },

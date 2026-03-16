@@ -2,8 +2,13 @@
 import { type CollectionEntry } from "astro:content";
 import { ClientRouter } from "astro:transitions";
 
+import CustomHeadCode from "@/components/analytics/CustomHeadCode.astro";
+import FacebookPixel from "@/components/analytics/FacebookPixel.astro";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics.astro";
 import GoogleTagManager from "@/components/analytics/GoogleTagManager.astro";
+import KakaoPixel from "@/components/analytics/KakaoPixel.astro";
+import MicrosoftClarity from "@/components/analytics/MicrosoftClarity.astro";
+import NaverAnalytics from "@/components/analytics/NaverAnalytics.astro";
 import WebVitals from "@/components/analytics/WebVitals.astro";
 import Seo from "@/components/seo/Seo.astro";
 import { clientConfig } from "@/config/clientConfig";
@@ -124,7 +129,14 @@ const { analytics } = clientConfig;
 <!-- Analytics -->
 <GoogleAnalytics />
 <GoogleTagManager position="head" />
+<NaverAnalytics />
+<MicrosoftClarity />
+<FacebookPixel />
+<KakaoPixel />
 <WebVitals />
+
+<!-- Custom Head Code -->
+<CustomHeadCode />
 
 <!-- no fallback as I saw issues with firefox fallback -->
 {siteSettings.useViewTransitions && <ClientRouter fallback="none" />}

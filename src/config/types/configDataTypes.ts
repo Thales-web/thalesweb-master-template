@@ -149,6 +149,11 @@ export interface ClientConfigProps {
     googleTagManagerId?: string;
     googleSearchConsoleVerification?: string;
     naverSearchAdvisorVerification?: string;
+    naverAnalyticsId?: string;
+    microsoftClarityId?: string;
+    facebookPixelId?: string;
+    kakaoPixelId?: string;
+    customHeadCode?: string;
   };
   seo: {
     enableLocalBusiness: boolean;
