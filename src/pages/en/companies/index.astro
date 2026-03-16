@@ -1,7 +1,9 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
+import { Image } from "astro:assets";
 
 import CompanyCard from "@/components/companies/CompanyCard.astro";
+import CompanyFilters from "@/components/companies/CompanyFilters.astro";
 import { filterCollectionByLanguage, getLocaleFromUrl } from "@/js/localeUtils";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
@@ -18,6 +20,15 @@ const companies = filterCollectionByLanguage(
 ) as CollectionEntry<"companies">[];
 
 companies.sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+// Featured companies (first 3)
+const featuredCompanies = companies.slice(0, 3);
+
+// Group by industry
+const industries = [...new Set(companies.map((c) => c.data.industry).filter(Boolean))] as string[];
+
+const slugify = (str: string) =>
+  str.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 const highlights = [
   {
@@ -40,14 +51,12 @@ const highlights = [
 
 const testimonials = [
   {
-    quote:
-      "HireWise helped us connect with design talent that aligned with our async, remote-first culture.",
+    quote: "HireWise helped us connect with design talent that aligned with our async, remote-first culture.",
     source: "Product Design Team, Figma",
     bg: "bg-orange-500",
   },
   {
-    quote:
-      "We discovered a fantastic open-source advocate through HireWise. The platform fits our culture perfectly.",
+    quote: "We discovered a fantastic open-source advocate through HireWise. The platform fits our culture perfectly.",
     source: "Hiring Team, Polar",
     bg: "bg-blue-600",
   },
@@ -73,8 +82,7 @@ const testimonials = [
           Explore top companies hiring now
         </h1>
         <p class="text-muted-foreground mt-4 text-balance text-lg">
-          Discover teams building the future. Browse by industry, size, or values — and find a
-          company that fits you.
+          Discover teams building the future. Browse by industry, size, or values — and find a company that fits you.
         </p>
         <div class="mt-6 flex">
           <a
@@ -84,58 +92,134 @@ const testimonials = [
             Browse all companies
           </a>
         </div>
+        <!-- Highlights -->
+        <div class="mt-12 grid grid-cols-2 gap-8">
+          {
+            highlights.map((item) => (
+              <div>
+                <h3 class="text-foreground text-base font-medium">{item.title}</h3>
+                <p class="text-muted-foreground text-sm text-balance">{item.description}</p>
+              </div>
+            ))
+          }
+        </div>
       </div>
 
-      <!-- Testimonials -->
+      <!-- Testimonials + Visual Grid -->
       <div class="hidden grid-cols-2 gap-2 lg:grid">
         {
-          testimonials.map((t) => (
+          featuredCompanies.slice(0, 1).map((c) =>
+            c.data.logo ? (
+              <div class="bg-muted flex items-center justify-center rounded-3xl p-8">
+                <Image
+                  src={c.data.logo}
+                  alt={`${c.data.name} logo`}
+                  width={120}
+                  height={120}
+                  class="size-24 object-contain"
+                />
+              </div>
+            ) : (
+              <div class="bg-muted flex items-center justify-center rounded-3xl p-8">
+                <span class="text-foreground text-3xl font-bold">{c.data.name.slice(0, 1)}</span>
+              </div>
+            ),
+          )
+        }
+        {
+          testimonials.slice(0, 1).map((t) => (
             <article
-              class={`${t.bg} flex flex-col items-center justify-center rounded-2xl p-5 text-center text-white`}
+              class={`${t.bg} flex flex-col items-center justify-center rounded-3xl p-5 text-center text-white`}
             >
-              <blockquote class="text-xs font-medium text-balance">"{t.quote}"</blockquote>
+              <blockquote class="text-sm font-medium text-balance">"{t.quote}"</blockquote>
               <footer class="mt-2 text-xs opacity-80">— {t.source}</footer>
             </article>
           ))
         }
-        <div class="bg-muted flex items-center justify-center rounded-full p-4"></div>
-        <div class="bg-muted flex items-center justify-center rounded-full p-4"></div>
+        <div class="bg-muted flex items-center justify-center rounded-full p-4" aria-hidden="true"></div>
+        {
+          testimonials.slice(1, 2).map((t) => (
+            <article
+              class={`${t.bg} flex flex-col items-center justify-center rounded-3xl p-5 text-center text-white`}
+            >
+              <blockquote class="text-sm font-medium text-balance">"{t.quote}"</blockquote>
+              <footer class="mt-2 text-xs opacity-80">— {t.source}</footer>
+            </article>
+          ))
+        }
+        {
+          featuredCompanies.slice(1, 2).map((c) =>
+            c.data.logo ? (
+              <div class="bg-muted flex items-center justify-center rounded-3xl p-8">
+                <Image
+                  src={c.data.logo}
+                  alt={`${c.data.name} logo`}
+                  width={120}
+                  height={120}
+                  class="size-24 object-contain"
+                />
+              </div>
+            ) : (
+              <div class="bg-muted flex items-center justify-center rounded-3xl p-8">
+                <span class="text-foreground text-3xl font-bold">{c.data.name.slice(0, 1)}</span>
+              </div>
+            ),
+          )
+        }
       </div>
-    </div>
-
-    <!-- Highlights -->
-    <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:mt-20 lg:grid-cols-4">
-      {
-        highlights.map((item) => (
-          <div>
-            <h3 class="text-foreground text-base font-medium">{item.title}</h3>
-            <p class="text-muted-foreground text-sm text-balance">{item.description}</p>
-          </div>
-        ))
-      }
     </div>
   </section>
 
-  <!-- Company Grid -->
+  <!-- Featured Companies -->
   <section id="companies" class="site-container scroll-mt-24 py-12 lg:py-20">
     <div class="bg-muted rounded-2xl p-1">
       <div class="px-4 py-3">
-        <h2 class="text-foreground text-xl font-semibold">All Companies</h2>
+        <h2 class="text-foreground text-xl font-semibold">Featured Companies</h2>
       </div>
-      <div class="grid grid-cols-1 gap-1 md:grid-cols-2">
-        {companies.map((company) => <CompanyCard company={company} />)}
-        <!-- Coming Soon filler -->
+      <div class="grid grid-cols-1 gap-1 lg:grid-cols-3">
+        {featuredCompanies.map((company) => <CompanyCard company={company} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Browse by Industry with Filters -->
+  <section class="site-container py-12">
+    <h2 class="text-foreground text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+      Search companies by industry.
+    </h2>
+    <div class="mt-8 grid grid-cols-1 gap-1 lg:grid-cols-5">
+      <!-- Industry Categories -->
+      <div class="lg:col-span-4 flex flex-col gap-12">
         {
-          companies.length % 2 !== 0 && (
-            <article class="bg-card flex flex-col items-center justify-center rounded-xl border p-6 text-center shadow-sm">
-              <h3 class="text-foreground font-medium">More companies coming soon</h3>
-              <p class="text-muted-foreground mt-1 text-sm text-balance">
-                We are working hard to bring you more companies. Check back soon or subscribe for
-                updates.
-              </p>
-            </article>
-          )
+          industries.map((industry) => {
+            const companiesInIndustry = companies.filter(
+              (c) => c.data.industry === industry,
+            );
+            return (
+              <div
+                id={slugify(industry)}
+                data-industry-block={slugify(industry)}
+                class="bg-muted rounded-2xl p-1"
+              >
+                <div class="px-4 py-3">
+                  <h3 class="text-foreground text-xl font-semibold">{industry}</h3>
+                </div>
+                <div class="flex flex-col gap-1">
+                  {companiesInIndustry.map((company) => (
+                    <CompanyCard company={company} />
+                  ))}
+                </div>
+              </div>
+            );
+          })
         }
+      </div>
+
+      <!-- Filters Sidebar -->
+      <div class="hidden lg:block">
+        <aside class="lg:sticky lg:top-20 lg:z-10">
+          <CompanyFilters />
+        </aside>
       </div>
     </div>
   </section>
@@ -157,10 +241,10 @@ const testimonials = [
         <div>
           <form class="bg-muted flex flex-col gap-1 rounded-xl p-1">
             <div>
-              <label for="email-companies-en" class="sr-only">Email address</label>
+              <label for={`email-companies-${currLocale}`} class="sr-only">Email address</label>
               <input
                 type="email"
-                id="email-companies-en"
+                id={`email-companies-${currLocale}`}
                 name="email"
                 required
                 placeholder="Enter your email address"
@@ -184,3 +268,16 @@ const testimonials = [
     </div>
   </section>
 </BaseLayout>
+
+<script is:inline>
+  const updateIndustryVisibility = () => {
+    const blocks = document.querySelectorAll("[data-industry-block]");
+    blocks.forEach((block) => {
+      const visibleCards = block.querySelectorAll("[data-company-card]:not(.hidden)");
+      block.classList.toggle("hidden", visibleCards.length === 0);
+    });
+  };
+
+  document.addEventListener("DOMContentLoaded", updateIndustryVisibility);
+  document.addEventListener("company-filters:applied", updateIndustryVisibility);
+</script>
