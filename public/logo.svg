@@ -1,9 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2b7efe"
-  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-north-star">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-  <path d="M3 12h18" />
-  <path d="M12 21v-18" />
-  <path d="M7.5 7.5l9 9" />
-  <path d="M7.5 16.5l9 -9" />
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="6" fill="#2b7efe"/>
+  <path d="M4.5 9h8v2.2h-2.5V23H7.5V11.2H4.5V9z" fill="white"/>
+  <path d="M13 9h2.4l1.8 8.5L19.2 9h2.2l2 8.5L25.2 9h2.3l-3.1 14h-2.4l-2-8.2-2 8.2h-2.4L13 9z" fill="white"/>
 </svg>

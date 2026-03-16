@@ -156,6 +156,13 @@ export const textTranslations = {
     share_on_whatsapp: "왓츠앱에 공유",
     share_by_email: "이메일로 공유",
 
+    // cookie consent
+    cookie_message: "이 사이트는 더 나은 경험을 위해 쿠키를 사용합니다. 자세한 내용은",
+    cookie_privacy_policy: "개인정보처리방침",
+    cookie_message_suffix: "을 참조하세요.",
+    cookie_accept: "동의",
+    cookie_decline: "거부",
+
     // 404
     "404_title": "404 - 페이지를 찾을 수 없습니다",
     "404_description": "요청하신 페이지를 찾을 수 없습니다.",
@@ -256,6 +263,13 @@ export const textTranslations = {
     share_on_pinterest: "Share on Pinterest",
     share_on_whatsapp: "Share on Whatsapp",
     share_by_email: "Share through email",
+
+    // cookie consent
+    cookie_message: "We use cookies to improve your experience on this site. To learn more, see our",
+    cookie_privacy_policy: "Privacy Policy",
+    cookie_message_suffix: ".",
+    cookie_accept: "Accept",
+    cookie_decline: "Decline",
 
     // 404
     "404_title": "404 - Page Not Found",
