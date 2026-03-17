@@ -13,6 +13,14 @@ categories:
 tags: typescript, Human writing
 ---
 
+<TldrBlock>
+TSConfig path aliases를 사용하면 `../../../components/` 같은 복잡한 상대 경로를 `@/components/` 같은 깔끔한 별칭으로 대체할 수 있습니다. tsconfig.json의 `paths` 옵션으로 설정합니다.
+</TldrBlock>
+
+<CitationCapsule question="TSConfig path aliases란 무엇인가?">
+TSConfig path aliases는 TypeScript에서 긴 상대 경로(예: `../../../components/MyComponent`)를 짧은 별칭(예: `@/components/MyComponent`)으로 대체하는 기능입니다. tsconfig.json의 `paths` 컴파일러 옵션에서 설정하며, 코드 가독성, 유지보수성을 높이고 파일 이동 시 import 경로를 일일이 수정할 필요가 없습니다.
+</CitationCapsule>
+
 TSConfig path aliases are a powerful tool that can help you to improve the readability, maintainability, and error-proofing of your TypeScript code. This allows for easier to read clean code, and enables us to move files around without having to update import paths in every file.
 
 _This is a huge time saver._

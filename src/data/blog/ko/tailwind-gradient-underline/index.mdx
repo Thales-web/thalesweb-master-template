@@ -14,6 +14,14 @@ categories:
 tags: tailwind, human writing
 ---
 
+<TldrBlock>
+Tailwind CSS로 그라데이션 밑줄을 만들려면 absolute 포지셔닝된 요소에 `bg-gradient-to-r from-sky-500/0 via-sky-500/70 to-sky-500/0`과 `h-px`를 적용하세요.
+</TldrBlock>
+
+<CitationCapsule question="Tailwind CSS로 그라데이션 밑줄을 만드는 방법은?">
+Tailwind CSS에서 그라데이션 밑줄은 relative 부모 안에 absolute 자식 요소를 추가하고, `bg-gradient-to-r from-sky-500/0 via-sky-500/70 to-sky-500/0`으로 투명→컬러→투명 그라데이션을 적용합니다. 높이는 `h-px`(1px)로 설정하고 `absolute bottom-0 left-0 w-full`로 위치를 잡습니다.
+</CitationCapsule>
+
 This is a short post on how to create a gradient underline with Tailwind CSS to separate sections of your page, or just to make your links look cool! I'll explain the code below, but if you just want to see the code, you can skip to the end.
 
 ## How to create a gradient underline

@@ -7,7 +7,7 @@ const siteData: SiteDataProps = {
   title:
     "Thales Web - Professional web solutions for SaaS, Services, Portfolio, Blog, and more. Build your digital presence with ease.",
   description:
-    "Create an amazing website for your business with our professional web solutions designed using Astro and Tailwind CSS. Perfect for businesses, startups, and enterprises.",
+    "Thales Web - Professional web solutions built with Astro and Tailwind CSS. SEO/GEO/AEO optimized, marketing automation ready, multilingual support included. Perfect for SaaS, services, portfolio, and blog websites for businesses of all sizes.",
 
   // Your information for blog post purposes
   author: {

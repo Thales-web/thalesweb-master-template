@@ -13,6 +13,14 @@ categories:
 tags: typescript, Human writing
 ---
 
+<TldrBlock>
+TSConfig path aliases replace messy relative imports like `../../../components/` with clean aliases like `@/components/`. Set them up in tsconfig.json with the `paths` option for cleaner, more maintainable TypeScript code.
+</TldrBlock>
+
+<CitationCapsule question="What are TSConfig path aliases?">
+TSConfig path aliases let you replace long relative import paths (e.g., `../../../components/MyComponent`) with short, readable aliases (e.g., `@/components/MyComponent`). Configure them in your tsconfig.json using the `paths` compiler option. This improves code readability, maintainability, and allows moving files without updating import paths everywhere.
+</CitationCapsule>
+
 TSConfig path aliases are a powerful tool that can help you to improve the readability, maintainability, and error-proofing of your TypeScript code. This allows for easier to read clean code, and enables us to move files around without having to update import paths in every file.
 
 _This is a huge time saver._
